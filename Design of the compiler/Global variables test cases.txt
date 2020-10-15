@@ -1,0 +1,71 @@
+voidArr[]		= "void"
+IntArr[][10]	= {“int”,”short”,”char”};
+FloatArr[][2] 	= {“float”,”double”};
+SignedArr[][2] 	= {“signed”,”unsigned”};
+LongArr[] 		= “long”;
+StaticArr[] 	= “static”
+ExternArr[]		= "extern"
+
+
+long & float  -> x
+double & float -> x
+double & long -> ok
+
+int int i-> x
+int i = ^5 or &5 
+int i = (int)5 -> ok
+int i = (int,short)5 -> x
+int i = (struct or enum or union or void or static) 5 -> x
+int i = (const) 5; -> ok
+int i = ()5   -> x
+int i = (5)   -> ok
+int i ={5} or {5,2,5} warning 
+int i = 'xxxx' or int i = 'x' or = "xxxx"-> ok
+int i =;                -> x
+int i = @ 				-> x
+
+#define u 5
+int i = u                -> ok
+
+int i = 5|5 or 5%5 or 5&5 or 5*5 or ~5 or
+int i = int -> x
+int i = var (known var) -> ok
+int i = anon var -> x
+
+int i = int -> x
+short int or int short-> ok
+int char -> x
+short or long char -> x
+void i -> x
+void *i -> ok
+static extern -> x
+int *ptr -> ok
+int ******************ptr; -> ok
+
+int i = val    -> ok
+int i = i	   -> ok
+
+int i,int u;	-> x
+int i,u;		-> ok
+int i,u=5;		-> ok
+int i,u==5;		-> x
+int u+=5;		-> x
+int u=+5;		-> ok
+int u=*5;		-> x // any expression not + or -
+
+
+int u;
+u =5;
+
+
+
+Int can match with long and signed & cant match with float 
+
+Float can match with long & cant match with signed and int
+
+Program must have a main:
+Every function if it met requirements {
+Start with long or float or int arrays or static and empty brackets or brackets have the same arrays but doesn’t have static arr}
+It stored in linked list and search at the end in the linked list node by node about main function
+Store the function only if the function ended with { } that means that function isn’t declared it is defined and function to search if any node repeated more than one produce error 
+For better execution time search line by line to find lines that start with any of arrays if started skip searching in the next line until find “}”
