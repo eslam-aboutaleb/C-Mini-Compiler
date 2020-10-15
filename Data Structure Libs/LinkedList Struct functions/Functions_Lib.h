@@ -10,17 +10,17 @@ typedef unsigned char								ReturnType_t;
 #define FUNCTIONS_PARAMETERS_LIMIT					100
 
 typedef struct {
-	u8 ParameterName[PARAMETER_NAME_LIMIT];
+	u8 u8ParameterName[PARAMETER_NAME_LIMIT];
 	ParameterType_t xArgumentType;
 }FuncParameters_st;
 
 
 typedef struct {
-	u8  FunctionName[FUNCTION_NAME_LIMIT];
-	ReturnType_t xReturnType;
+	u8  u8FunctionName[FUNCTION_NAME_LIMIT];
+	u8  u8N_Parameters;
+	ReturnType_t uxReturnType;
 	u32 u32DefLine;
-	u8 u8N_Parameters;
-	FuncParameters_st Parameters[FUNCTIONS_PARAMETERS_LIMIT];
+	FuncParameters_st xParameters[FUNCTIONS_PARAMETERS_LIMIT];
 }Function_st;
 
 

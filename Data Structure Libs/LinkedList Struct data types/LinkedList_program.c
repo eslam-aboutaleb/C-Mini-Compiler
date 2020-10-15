@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "STD_TYPES.h"
-#include "Functions_Lib.h"
+#include "DataTypes_Libs.h"
 #include "LinkedList_interface.h"
 
 /* Local functions prototypes */
@@ -166,7 +166,7 @@ ERROR_STATUS List_xPrint(Node * Copy_pHead)
 	/* Traverse the list until NULL */
 	while( NULL != Copy_pHead)
 	{
-		printf("%s\t", Copy_pHead->Data->FunctionName);
+		printf("%s\t", Copy_pHead->Data->u8VarName);
 		printf("%d\t", Copy_pHead->Data->u32DefLine);
 		Copy_pHead = Copy_pHead->Next;
 	}
